@@ -14,7 +14,7 @@
 /coverage
 
 # next.js
-/.next/
+/.next**/
 /.next-cli-build/
 /out/
 cli/.build-home/
@@ -101,3 +101,4 @@ graphify-out/*
 .start-dev.ps1
 start-dev-silent.cjs
 debug.log
+release

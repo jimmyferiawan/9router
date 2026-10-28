@@ -1,18 +1,18 @@
 {
   "name": "9router-app",
-  "version": "0.5.111",
+  "version": "0.5.112",
   "description": "9Router web dashboard",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 20127",
-    "dev:webpack": "next dev --webpack --port 20127",
-    "build": "next build --webpack",
+    "dev": "node init && next dev --port 20127",
+    "dev:webpack": "node init && next dev --webpack --port 20127",
+    "build": "node init && next build --webpack",
     "postbuild": "node scripts/copy-standalone-assets.mjs",
     "postbuild:bun": "node scripts/copy-standalone-assets.mjs",
-    "start": "node custom-server.js --port 20127",
-    "dev:bun": "bun --bun next dev --webpack --port 20127",
-    "build:bun": "bun --bun next build --webpack",
-    "start:bun": "bun ./.next/standalone/custom-server.js",
+    "start": "node init && node custom-server.js --port 20127",
+    "dev:bun": "node init && bun --bun next dev --webpack --port 20127",
+    "build:bun": "node init && bun --bun next build --webpack",
+    "start:bun": "node init && bun ./.next/standalone/custom-server.js",
     "cli:pack": "npm --prefix cli run pack:cli",
     "cli:publish": "npm --prefix cli run publish:cli"
   },
@@ -54,8 +54,8 @@
     "better-sqlite3": "^12.6.2",
     "ws": "^8.18.0"
   },
-  "comment_better_sqlite3": "kept in optionalDependencies so npm install doesn't fail on systems without build tools — sql.js is used as fallback at runtime",
-  "comment_aws_sdk_credential_providers": "kept in optionalDependencies (npm still installs these by default) and imported lazily in shared/awsCredentials.js — only AWS Bedrock connections using profile/SSO mode need it; static accessKeyId/secretAccessKey connections never load it",
+  "comment_better_sqlite3": "kept in optionalDependencies so npm install doesn't fail on systems without build tools \u2014 sql.js is used as fallback at runtime",
+  "comment_aws_sdk_credential_providers": "kept in optionalDependencies (npm still installs these by default) and imported lazily in shared/awsCredentials.js \u2014 only AWS Bedrock connections using profile/SSO mode need it; static accessKeyId/secretAccessKey connections never load it",
   "comment_playwright_core": "devDependency only (keeps end-user installs small); open-sse/services/lazyRuntime.js downloads it + wreq-js on first use into <DATA_DIR>/runtime. playwright-core ships no browser binaries (run `npx playwright-core install chromium` or point OBSCURA_CDP_ENDPOINT/cloakbrowser at a stealth engine)",
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",

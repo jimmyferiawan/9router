@@ -17,7 +17,8 @@
     "cli:publish": "npm --prefix cli run publish:cli",
     "clean:release": "rimraf release",
     "copy:release": "node scripts/copy-release.js",
-    "release": "npm run clean:release && npm run build && npm run copy:release"
+    "release": "npm run clean:release && npm run build && npm run copy:release",
+    "build:standalone": "next build && rimraf standalone && node scripts/standalone.js"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",
